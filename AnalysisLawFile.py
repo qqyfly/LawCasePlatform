@@ -15,9 +15,15 @@ from multiprocessing import Pool
 import getopt
 import codecs
 
-file_folder = '/home/pierre/dev/Data/案件类型为民事案件20160810/'
-export_folder = "/home/pierre/dev/Workspaces/PycharmProjects/LawCasePlatform/export/"
-result_folder = "/home/pierre/dev/Workspaces/PycharmProjects/LawCasePlatform/result/"
+file_folder = '/XXX/20160810/'
+export_folder = "/LawCasePlatform/export/"
+result_folder = "/LawCasePlatform/result/"
+
+rm_export_cmd = "rm -rf " + export_folder + "*"
+mkdir_export_cmd = "mkdir " + export_folder
+
+rm_result_cmd = "rm -rf " + result_folder + "*"
+mkdir_result_cmd = "mkdir " + result_folder
 
 
 # valid step
@@ -28,11 +34,12 @@ step = 2
 
 def init(num):
     if num == 1 or num == 0:
-        os.popen('rm -rf /home/pierre/dev/Workspaces/PycharmProjects/LawCasePlatform/export/*')
-        #os.popen('mkdir /home/pierre/dev/Workspaces/PycharmProjects/LawCasePlatform/export/')
+        os.popen(rm_export_cmd)
+        #os.popen(mkdir_export_cmd)
     if num == 2 or num == 0:
-        os.popen('rm -rf /home/pierre/dev/Workspaces/PycharmProjects/LawCasePlatform/result/*')
-        #os.popen('mkdir /home/pierre/dev/Workspaces/PycharmProjects/LawCasePlatform/result/')
+        os.popen(rm_result_cmd)
+        #os.popen(mkdir_result_cmd)
+    
 
 
 def pre_process_law_file(file_id, file_path):
